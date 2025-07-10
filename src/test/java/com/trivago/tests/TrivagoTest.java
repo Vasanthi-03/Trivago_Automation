@@ -14,7 +14,7 @@ public class TrivagoTest extends BaseTest {
 
     @Test(priority = 1)
     public void searchAndFilterHotels() throws InterruptedException {
-    	ExtentTest test = ExtentReportUtil.createTest("Search and Filter Hotels");
+    	//ExtentTest test = ExtentReportUtil.createTest("Search and Filter Hotels");
         TrivagoHomePage homePage = new TrivagoHomePage(driver, wait);
         homePage.searchCity("Mumbai");
 
@@ -25,7 +25,7 @@ public class TrivagoTest extends BaseTest {
     @Test(priority = 2)
     public void collectAndExportHotelData() throws InterruptedException {
 
-       ExtentTest test = ExtentReportUtil.createTest("Collect and Export Hotel Data");
+       //ExtentTest test = ExtentReportUtil.createTest("Collect and Export Hotel Data");
 
         HotelCollectorUtil.collectHotelData(driver);
         ExcelReportUtil.writeTop10HotelsToExcel(

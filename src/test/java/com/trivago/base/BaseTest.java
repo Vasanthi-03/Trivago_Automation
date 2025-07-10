@@ -1,16 +1,16 @@
 package com.trivago.base;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.*;
-
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 public class BaseTest {
     protected WebDriver driver;
@@ -19,14 +19,16 @@ public class BaseTest {
     @Parameters("browser")
     @BeforeClass
     public void setup(@Optional("chrome") String browser) throws MalformedURLException {
-        URL gridUrl = new URL("http://10.232.5.16:4442/");
+       // URL gridUrl = new URL("http://10.232.5.16:4442/");
 
         if (browser.equalsIgnoreCase("chrome")) {
-            ChromeOptions options = new ChromeOptions();
-            driver = new RemoteWebDriver(gridUrl, options);
+            //ChromeOptions options = new ChromeOptions();
+            //driver = new RemoteWebDriver(gridUrl, options);
+        	driver=new ChromeDriver();
         } else if (browser.equalsIgnoreCase("edge")) {
-            EdgeOptions options = new EdgeOptions();
-            driver = new RemoteWebDriver(gridUrl, options);
+            //EdgeOptions options = new EdgeOptions();
+           // driver = new RemoteWebDriver(gridUrl, options);
+        	driver=new EdgeDriver();
         } else {
             throw new IllegalArgumentException("Browser not supported: " + browser);
         }
